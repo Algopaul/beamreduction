@@ -78,6 +78,13 @@ def main(cfg: Config) -> None:
   plt.savefig('singular_values.png')
   plt.close(fig)
 
+  for mode in range(5):
+    fig, ax = plt.subplots()
+    ax.plot(U[:, mode])
+    ax.legend([f'mode {mode+1}'])
+    plt.savefig(f'mode_{mode+1:02d}.png')
+    plt.close(fig)
+
   store_animation(x, [trajectory], 'full_model', ['full trajectory'])
 
   reduced_trajectories = []
